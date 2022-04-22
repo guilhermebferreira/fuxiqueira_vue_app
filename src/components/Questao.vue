@@ -1,55 +1,32 @@
 <template>
-  <v-card
-    class="mx-auto"
-    light
-
-    max-width="400"
-  >
-    <v-img
-      class="white--text align-end"
-      height="200px"
-      :src="imagem"
-      v-if="hasImage"
-    >
+  <v-card class="mx-auto" light max-width="400">
+    <v-img class="white--text align-end" height="200px" :src="imagem" v-if="hasImage">
       <v-card-title class="black--text">{{ titulo }}</v-card-title>
     </v-img>
-    <v-card-title  v-if="!hasImage" class="black--text">{{ titulo }}</v-card-title>
+    <v-card-title v-if="!hasImage" class="black--text">{{ titulo }}</v-card-title>
 
     <v-card-text class="text--primary">
       <v-container fluid>
-
         <p>{{ descricao }}</p>
-
 
         <v-container v-if="hasAudio">
           <vuetify-audio :file="audio"></vuetify-audio>
         </v-container>
 
         <v-radio-group :mandatory="false" v-model="radios">
-
-          <template
-            v-for="(alternativa, j) in alternativas"
-          >
+          <template v-for="(alternativa, j) in alternativas">
             <v-container v-if="!!alternativa.audio" :key="j">
               <vuetify-audio :file="alternativa.audio"></vuetify-audio>
             </v-container>
-            <v-radio
-              :key="j"
-              :label=alternativa.descricao
-              :value=alternativa.letra
-            />
+            <v-radio :key="j" :label="alternativa.descricao" :value="alternativa.letra" />
           </template>
-
         </v-radio-group>
       </v-container>
     </v-card-text>
 
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn
-        @click="submeter"
-        color="orange"
-      >
+      <v-btn @click="submeter" color="orange">
         Proxima
       </v-btn>
     </v-card-actions>
@@ -66,12 +43,10 @@ export default {
   },
   props: {
     titulo: {
-
       type: String,
       required: true,
     },
     descricao: {
-
       type: String,
       required: true,
     },
@@ -112,6 +87,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
