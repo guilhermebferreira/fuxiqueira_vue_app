@@ -94,11 +94,9 @@ export default {
   methods: {
     addResposta(resp) {
       this.respostas.push(resp);
-      console.log(this.respostas);
       this.nextItem();
     },
     nextItem() {
-      console.log("next");
       this.model += 1;
     },
   },

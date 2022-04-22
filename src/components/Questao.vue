@@ -106,9 +106,6 @@ export default {
   },
   methods: {
     submeter() {
-      console.log(this.imagem);
-      console.log('respondeu');
-      console.log(this.radios);
       this.responder(this.radios);
     },
   },
