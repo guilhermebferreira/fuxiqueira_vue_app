@@ -19,7 +19,6 @@
       <v-container fluid>
 
         <p>{{ descricao }}</p>
-        <p>{{radios }}</p>
 
 
         <v-container v-if="hasAudio">
@@ -31,6 +30,9 @@
           <template
             v-for="(alternativa, j) in alternativas"
           >
+            <v-container v-if="!!alternativa.audio" :key="j">
+              <vuetify-audio :file="alternativa.audio"></vuetify-audio>
+            </v-container>
             <v-radio
               :key="j"
               :label=alternativa.descricao
@@ -48,7 +50,7 @@
         @click="submeter"
         color="orange"
       >
-        Submeter resposta
+        Proxima
       </v-btn>
     </v-card-actions>
   </v-card>
